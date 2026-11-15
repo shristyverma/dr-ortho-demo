@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dr. Rohan Mehta | Orthopaedic Surgeon in Your City</title>
+<meta name="description" content="Dr. Rohan Mehta, MBBS, MS (Orthopaedics). Bone, joint and spine care. Clinic timings, services and appointments.">
+<style>
+  :root{--teal:#1d4ed8;--teal-dark:#1e3a8a;--soft:#eff6ff;--ink:#1f2937;--muted:#6b7280;--line:#e5e7eb}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:var(--ink);line-height:1.6;background:#fff}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1000px;margin:0 auto;padding:0 20px}
+  header{position:sticky;top:0;background:#fff;border-bottom:1px solid var(--line);z-index:10}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:60px}
+  .logo{font-weight:700;color:var(--teal)}
+  .nav a.link{margin-left:18px;font-size:14px;color:var(--muted)}
+  .btn{display:inline-block;background:var(--teal);color:#fff;padding:12px 22px;border-radius:999px;font-weight:600;font-size:15px}
+  .btn:hover{background:var(--teal-dark)}
+  .btn.alt{background:#fff;color:var(--teal);border:1.5px solid var(--teal)}
+  .hero{background:var(--soft);padding:48px 0}
+  .hero .wrap{display:grid;gap:28px;align-items:center}
+  .avatar{width:150px;height:150px;border-radius:50%;background:var(--teal);color:#fff;display:flex;align-items:center;justify-content:center;font-size:52px;font-weight:700;margin:0 auto}
+  .hero h1{font-size:32px;line-height:1.2;margin-bottom:6px}
+  .hero .role{color:var(--teal);font-weight:600;margin-bottom:12px}
+  .hero p{color:var(--muted);margin-bottom:20px}
+  .hero .actions{display:flex;gap:10px;flex-wrap:wrap}
+  section{padding:48px 0}
+  h2{font-size:26px;margin-bottom:6px}
+  .sub{color:var(--muted);margin-bottom:24px}
+  .grid{display:grid;gap:14px}
+  .card{border:1px solid var(--line);border-radius:14px;padding:18px}
+  .card h3{font-size:17px;margin-bottom:4px;color:var(--teal)}
+  .card p{font-size:14px;color:var(--muted)}
+  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:20px}
+  .stat{text-align:center;background:var(--soft);border-radius:12px;padding:14px 6px}
+  .stat b{display:block;font-size:22px;color:var(--teal)}
+  .stat span{font-size:12px;color:var(--muted)}
+  .alt-bg{background:#fafafa}
+  table{width:100%;border-collapse:collapse;font-size:15px}
+  td{padding:10px 0;border-bottom:1px solid var(--line)}
+  td:last-child{text-align:right;color:var(--muted)}
+  .review p{font-style:italic;font-size:14px}
+  .review small{display:block;margin-top:8px;color:var(--muted)}
+  .note{font-size:12px;color:var(--muted);margin-top:14px}
+  footer{background:var(--ink);color:#d1d5db;padding:28px 0;font-size:13px;text-align:center}
+  .fab{position:fixed;right:16px;bottom:16px;background:#25d366;color:#fff;padding:13px 18px;border-radius:999px;font-weight:600;box-shadow:0 4px 14px rgba(0,0,0,.25);z-index:20}
+  /* Photo spaces: gallery + achievements */
+  .shot{position:relative;margin:0;aspect-ratio:4/3;border-radius:12px;overflow:hidden;background:var(--soft);border:1.5px dashed #bfdbfe;display:flex;align-items:center;justify-content:center;text-align:center;cursor:default}
+  .shot:has(img){cursor:zoom-in;border-style:solid;border-color:var(--line)}
+  .shot .ph{padding:10px;font-size:12px;color:var(--muted);line-height:1.3}
+  .shot .ph b{display:block;font-size:24px;margin-bottom:2px}
+  .shot .ph small{display:block;color:#9ca3af;font-size:11px}
+  .shot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .4s}
+  .shot:hover img{transform:scale(1.06)}
+  .shot figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 10px 8px;font-size:12px;font-weight:600;color:#fff;background:linear-gradient(transparent,rgba(0,0,0,.65));text-align:left}
+  .shots{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+  .grid.duo{grid-template-columns:repeat(2,1fr);gap:12px}
+  .duo .card{padding:12px}
+  .duo .card .shot{margin-bottom:10px}
+  .duo .card h3{font-size:15px}
+  .duo .card p{font-size:13px}
+  .lightbox{position:fixed;inset:0;background:rgba(0,0,0,.88);display:flex;align-items:center;justify-content:center;z-index:50;padding:16px;cursor:zoom-out}
+  .lightbox img{max-width:100%;max-height:100%;border-radius:10px}
+
+  /* Open / closed status */
+  .status{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--line);border-radius:999px;padding:6px 14px;font-size:14px;font-weight:600;margin-bottom:12px}
+  .dot{width:10px;height:10px;border-radius:50%;background:#9ca3af;flex:none}
+  .status.open .dot{background:#16a34a;animation:blink 1.6s ease-in-out infinite}
+  .status.closed .dot{background:#dc2626}
+  .status.open{color:#15803d;border-color:#bbf7d0}
+  .status.closed{color:#b91c1c;border-color:#fecaca}
+  .today{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;background:#fff;border:1px solid var(--line);border-left:5px solid #9ca3af;border-radius:14px;padding:16px 18px;margin-bottom:16px}
+  .today.open{border-left-color:#16a34a}
+  .today.closed{border-left-color:#dc2626}
+  .today b{display:block;font-size:16px}
+  .today span.hrs{font-size:14px;color:var(--muted)}
+  .badge{padding:6px 14px;border-radius:999px;font-weight:700;font-size:14px;background:#f3f4f6;color:var(--muted)}
+  .today.open .badge{background:#dcfce7;color:#15803d}
+  .today.closed .badge{background:#fee2e2;color:#b91c1c}
+  @keyframes blink{50%{box-shadow:0 0 0 6px rgba(22,163,74,.18)}}
+
+  /* Live status bar + notice */
+  [hidden]{display:none!important}
+  .livebar{display:flex;align-items:center;justify-content:center;gap:10px;padding:9px 16px;font-size:14px;font-weight:600;text-align:center;background:#f3f4f6;color:var(--muted)}
+  .livebar .dot{background:currentColor}
+  .livebar.open{background:#dcfce7;color:#15803d}
+  .livebar.open .dot{animation:blink 1.6s ease-in-out infinite}
+  .livebar.wait{background:#fef3c7;color:#b45309}
+  .livebar.wait .dot{animation:blink 1.6s ease-in-out infinite}
+  .livebar.closed{background:#fee2e2;color:#b91c1c}
+  .notice{padding:10px 16px;font-size:14px;background:#fffbeb;border-bottom:1px solid #fde68a;color:#92400e;text-align:center}
+  .status.wait{color:#b45309;border-color:#fde68a}
+  .status.wait .dot{background:#d97706;animation:blink 1.6s ease-in-out infinite}
+  .today.wait{border-left-color:#d97706}
+  .today.wait .badge{background:#fef3c7;color:#b45309}
+
+  /* Animations */
+  .avatar{position:relative;animation:pop .8s cubic-bezier(.2,.8,.2,1) both,float 4s ease-in-out .8s infinite}
+  .avatar::after{content:"";position:absolute;inset:-8px;border-radius:50%;border:2px solid var(--teal);opacity:.4;animation:ring 2.4s ease-out infinite}
+  .hero h1,.hero .role,.hero p,.hero .actions{animation:rise .7s ease both}
+  .hero .role{animation-delay:.12s}
+  .hero p{animation-delay:.24s}
+  .hero .actions{animation-delay:.36s}
+  .btn{transition:transform .2s,box-shadow .2s,background .2s}
+  .btn:hover{transform:translateY(-2px);box-shadow:0 8px 18px rgba(29,78,216,.3)}
+  .card{transition:transform .25s,box-shadow .25s,border-color .25s}
+  .card:hover{transform:translateY(-5px);box-shadow:0 12px 26px rgba(0,0,0,.08);border-color:var(--teal)}
+  .stat{transition:transform .25s}
+  .stat:hover{transform:scale(1.05)}
+  .fab{animation:pulse 2s infinite}
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+  .reveal.in{opacity:1;transform:none}
+  @keyframes pop{from{opacity:0;transform:scale(.6)}}
+  @keyframes float{50%{transform:translateY(-8px)}}
+  @keyframes ring{0%{transform:scale(1);opacity:.5}100%{transform:scale(1.35);opacity:0}}
+  @keyframes rise{from{opacity:0;transform:translateY(18px)}}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(37,211,102,.6)}70%{box-shadow:0 0 0 16px rgba(37,211,102,0)}100%{box-shadow:0 0 0 0 rgba(37,211,102,0)}}
+  @media(prefers-reduced-motion:reduce){
+    *,*::after{animation:none!important;transition:none!important}
+    .reveal{opacity:1;transform:none}
+  }
+  @media(min-width:760px){
+    .hero .wrap{grid-template-columns:200px 1fr}
+    .avatar{width:190px;height:190px;font-size:64px}
+    .hero h1{font-size:42px}
+    .grid.three{grid-template-columns:repeat(3,1fr)}
+    .grid.two{grid-template-columns:repeat(2,1fr)}
+    .grid.duo{grid-template-columns:repeat(4,1fr)}
+    .shots{grid-template-columns:repeat(3,1fr)}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <span class="logo">Dr. Rohan Mehta</span>
+    <nav>
+      <a class="link" href="#about">About</a>
+      <a class="link" href="#services">Services</a>
+      <a class="link" href="#contact">Contact</a>
+    </nav>
+  </div>
+  <div class="livebar" id="live-bar"><span class="dot"></span><span id="live-text">Checking availability...</span></div>
+</header>
+<div class="notice" id="notice-bar" hidden><b>Notice:</b> <span id="notice-text"></span></div>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="avatar">RM</div>
+    <div>
+      <h1>Dr. Rohan Mehta</h1>
+      <div class="role">MBBS, MS (Ortho) &middot; Orthopaedic &amp; Joint Surgeon</div>
+      <div class="status" id="status-pill"><span class="dot"></span><span id="status-text">Checking availability...</span></div>
+      <p>Care for bones, joints, spine and sports injuries, with a focus on getting you moving comfortably again at Bone &amp; Joint Care Clinic.</p>
+      <div class="actions">
+        <a class="btn" href="https://wa.me/910000000000?text=Hello%20Doctor%2C%20I%20would%20like%20to%20book%20an%20appointment">Book on WhatsApp</a>
+        <a class="btn alt" href="tel:+910000000000">Call Clinic</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section id="about">
+  <div class="wrap">
+    <h2>About the Doctor</h2>
+    <p class="sub">Qualifications and experience</p>
+    <p>Dr. Rohan Mehta completed his MBBS and MS in Orthopaedics and has been practising since 2013. He treats fractures, joint pain, sports injuries and spine problems, and explains each treatment option clearly so patients can decide with confidence.</p>
+    <div class="stats">
+      <div class="stat"><b data-count="13" data-suffix="+">13+</b><span>Years of practice</span></div>
+      <div class="stat"><b>MBBS, MS Ortho</b><span>Qualifications</span></div>
+      <div class="stat"><b>Reg. No.</b><span>XXXXX (add real)</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="achievements" class="alt-bg">
+  <div class="wrap">
+    <h2>Achievements &amp; Success</h2>
+    <p class="sub">Recognition, training and community work</p>
+    <div class="grid duo">
+      <div class="card">
+        <figure class="shot"><span class="ph"><b>&#128247;</b>Add photo<small>degree.jpg</small></span><img src="degree.jpg" alt="Degrees and Certificates" loading="lazy" onerror="this.remove()"></figure>
+        <h3>Degrees &amp; Certificates</h3><p>MBBS, MS Orthopaedics and professional certifications.</p>
+      </div>
+      <div class="card">
+        <figure class="shot"><span class="ph"><b>&#128247;</b>Add photo<small>award.jpg</small></span><img src="award.jpg" alt="Awards and Recognition" loading="lazy" onerror="this.remove()"></figure>
+        <h3>Awards &amp; Recognition</h3><p>Awards, felicitations and honours received.</p>
+      </div>
+      <div class="card">
+        <figure class="shot"><span class="ph"><b>&#128247;</b>Add photo<small>conference.jpg</small></span><img src="conference.jpg" alt="Conferences and Training" loading="lazy" onerror="this.remove()"></figure>
+        <h3>Conferences &amp; Training</h3><p>Conferences attended and advanced training.</p>
+      </div>
+      <div class="card">
+        <figure class="shot"><span class="ph"><b>&#128247;</b>Add photo<small>camp.jpg</small></span><img src="camp.jpg" alt="Community Camps" loading="lazy" onerror="this.remove()"></figure>
+        <h3>Community Camps</h3><p>Bone health and joint care camps for the community.</p>
+      </div>
+    </div>
+    <p class="note">Demo photo spaces. Replace them with the doctor's real certificates and photos.</p>
+  </div>
+</section>
+
+<section id="services">
+  <div class="wrap">
+    <h2>Services</h2>
+    <p class="sub">Treatments offered at the clinic</p>
+    <div class="grid three">
+      <div class="card"><h3>Fracture Care</h3><p>Assessment and treatment of broken bones, with casts or surgery where needed.</p></div>
+      <div class="card"><h3>Joint Pain &amp; Arthritis</h3><p>Evaluation and treatment of knee, hip and shoulder pain.</p></div>
+      <div class="card"><h3>Joint Replacement</h3><p>Knee and hip replacement for advanced joint damage.</p></div>
+      <div class="card"><h3>Sports Injuries</h3><p>Ligament, tendon and muscle injuries, including arthroscopy.</p></div>
+      <div class="card"><h3>Back &amp; Neck Pain</h3><p>Diagnosis and treatment of spine and nerve-related pain.</p></div>
+      <div class="card"><h3>Physiotherapy &amp; Rehab</h3><p>Guided recovery and exercise plans after injury or surgery.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="gallery">
+  <div class="wrap">
+    <h2>Clinic Gallery</h2>
+    <p class="sub">A look inside the clinic and our work</p>
+    <div class="shots">
+      <figure class="shot"><span class="ph"><b>&#128247;</b>Add photo<small>clinic-1.jpg</small></span><img src="clinic-1.jpg" alt="Clinic reception" loading="lazy" onerror="this.remove()"><figcaption>Clinic reception</figcaption></figure>
+      <figure class="shot"><span class="ph"><b>&#128247;</b>Add photo<small>clinic-2.jpg</small></span><img src="clinic-2.jpg" alt="Consultation room" loading="lazy" onerror="this.remove()"><figcaption>Consultation room</figcaption></figure>
+      <figure class="shot"><span class="ph"><b>&#128247;</b>Add photo<small>clinic-3.jpg</small></span><img src="clinic-3.jpg" alt="X-ray and diagnostics" loading="lazy" onerror="this.remove()"><figcaption>X-ray and diagnostics</figcaption></figure>
+      <figure class="shot"><span class="ph"><b>&#128247;</b>Add photo<small>team.jpg</small></span><img src="team.jpg" alt="Our team" loading="lazy" onerror="this.remove()"><figcaption>Our team</figcaption></figure>
+      <figure class="shot"><span class="ph"><b>&#128247;</b>Add photo<small>rehab-1.jpg</small></span><img src="rehab-1.jpg" alt="Physiotherapy and rehab area" loading="lazy" onerror="this.remove()"><figcaption>Physiotherapy and rehab area</figcaption></figure>
+      <figure class="shot"><span class="ph"><b>&#128247;</b>Add photo<small>rehab-2.jpg</small></span><img src="rehab-2.jpg" alt="Recovery exercise area" loading="lazy" onerror="this.remove()"><figcaption>Recovery exercise area</figcaption></figure>
+    </div>
+    <p class="note">Tap a photo to enlarge it. Add patient or X-ray photos only with the patient's written consent.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Patient Feedback</h2>
+    <p class="sub">Sample section</p>
+    <div class="grid two">
+      <div class="card review"><p>Add a real patient review here, with their permission.</p><small>Patient name</small></div>
+      <div class="card review"><p>Add a second real review here.</p><small>Patient name</small></div>
+    </div>
+    <p class="note">Demo placeholders. In the final site, only genuine reviews from the doctor's patients are shown.</p>
+  </div>
+</section>
+
+<section id="contact" class="alt-bg">
+  <div class="wrap">
+    <h2>Clinic &amp; Timings</h2>
+    <p class="sub">Bone &amp; Joint Care Clinic, 12 Main Road, Your City, 000000</p>
+    <div class="today" id="today-bar">
+      <div><b id="today-title">Today</b><span class="hrs" id="today-hours">Loading timings...</span></div>
+      <span class="badge" id="today-badge">--</span>
+    </div>
+    <div class="grid two">
+      <div class="card">
+        <table>
+          <tr><td>Monday &ndash; Saturday</td><td>10:00 AM &ndash; 1:30 PM</td></tr>
+          <tr><td>Monday &ndash; Saturday</td><td>5:00 PM &ndash; 8:00 PM</td></tr>
+          <tr><td>Sunday</td><td>Closed</td></tr>
+        </table>
+      </div>
+      <div class="card">
+        <h3>Get in touch</h3>
+        <p>Phone: +91 00000 00000</p>
+        <p>Email: clinic@example.com</p>
+        <p style="margin-top:12px"><a class="btn" href="https://wa.me/910000000000">Message on WhatsApp</a></p>
+      </div>
+    </div>
+    <p class="note">Replace this area with a Google Maps embed of the real clinic location.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">&copy; 2026 Dr. Rohan Mehta. Information on this website is for general awareness and is not a substitute for a medical consultation.</div>
+</footer>
+
+<div class="lightbox" id="lightbox" hidden><img alt=""></div>
+
+<a class="fab" href="https://wa.me/910000000000">WhatsApp</a>
+
+<script>
+(function(){
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduce || !('IntersectionObserver' in window)) return;
+
+  function countUp(el){
+    var target = parseInt(el.getAttribute('data-count'), 10);
+    var suffix = el.getAttribute('data-suffix') || '';
+    var start = null, dur = 1200;
+    function step(t){
+      if (start === null) start = t;
+      var p = Math.min((t - start) / dur, 1);
+      el.textContent = Math.round(target * p) + suffix;
+      if (p < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if (!en.isIntersecting) return;
+      var el = en.target;
+      setTimeout(function(){
+        el.classList.add('in');
+        var c = el.querySelector('[data-count]');
+        if (c) countUp(c);
+        setTimeout(function(){ el.classList.remove('reveal','in'); }, 900);
+      }, el._delay || 0);
+      io.unobserve(el);
+    });
+  }, {threshold: 0.15});
+
+  document.querySelectorAll('section h2, .sub, .card, .stat, .note, .shots > .shot').forEach(function(el, i){
+    el.classList.add('reveal');
+    el._delay = (i % 3) * 120;
+    io.observe(el);
+  });
+})();
+</script>
+<script>
+(function(){
+  /* ---- EDIT THIS PART FOR EACH DOCTOR ---- */
+  var TZ = 'Asia/Kolkata';
+  var SHEET_URL = '';   // Paste the doctor's Google Sheet "published CSV" link here. Leave '' to use only the weekly timings below.
+  var SCHEDULE = {      // Regular weekly timings. 0 = Sunday ... 6 = Saturday. [] = closed all day.
+    0: [],
+    1: [['10:00','13:30'],['17:00','20:00']],
+    2: [['10:00','13:30'],['17:00','20:00']],
+    3: [['10:00','13:30'],['17:00','20:00']],
+    4: [['10:00','13:30'],['17:00','20:00']],
+    5: [['10:00','13:30'],['17:00','20:00']],
+    6: [['10:00','13:30'],['17:00','20:00']]
+  };
+  /* ---------------------------------------- */
+
+  var DAYS = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+  var OVERRIDES = {};   // per-date rows from the sheet (optional, for planned leave / special timings)
+  var CONTROL = null;   // the doctor's one-tap status from the sheet
+
+  /* Live statuses */
+  var LIVE = {
+    available: { state:'open',   msg:'Doctor is available now',                                   badge:'AVAILABLE NOW' },
+    late:      { state:'wait',   msg:'Doctor is on the way and will arrive soon',                  badge:'ARRIVING SOON' },
+    emergency: { state:'wait',   msg:'Doctor is attending an emergency and will be back soon',     badge:'BACK SOON' },
+    lunch:     { state:'wait',   msg:'Doctor is on a lunch break and will be back soon',           badge:'ON BREAK' },
+    away:      { state:'closed', msg:'Doctor is temporarily not available',                        badge:'UNAVAILABLE' }
+  };
+
+  /* The doctor-friendly dropdown text in the sheet -> internal status */
+  function modeFromText(t){
+    t = (t || '').toLowerCase();
+    if (!t || t.indexOf('follow') === 0 || t.indexOf('regular') > -1) return '';
+    if (t.indexOf('not available') > -1 || t === 'away') return 'away';
+    if (t.indexOf('available') > -1) return 'available';
+    if (t.indexOf('on the way') > -1 || t.indexOf('arriving') > -1 || t === 'late') return 'late';
+    if (t.indexOf('emergency') > -1) return 'emergency';
+    if (t.indexOf('lunch') > -1 || t.indexOf('break') > -1) return 'lunch';
+    if (t.indexOf('closed') > -1) return 'closed';
+    return '';
+  }
+
+  function pad(n){ return (n < 10 ? '0' : '') + n; }
+  function mins(t){ var p = t.split(':'); return parseInt(p[0],10)*60 + parseInt(p[1],10); }
+  function fmt(t){
+    var p = t.split(':'), h = parseInt(p[0],10), m = p[1];
+    var ap = h >= 12 ? 'PM' : 'AM';
+    h = h % 12; if (h === 0) h = 12;
+    return h + ':' + m + ' ' + ap;
+  }
+
+  function clinicNow(){
+    var parts = new Intl.DateTimeFormat('en-US',{timeZone:TZ,year:'numeric',month:'numeric',day:'numeric',hour:'numeric',minute:'numeric',hourCycle:'h23'}).formatToParts(new Date());
+    var o = {};
+    parts.forEach(function(p){ o[p.type] = p.value; });
+    return { y:+o.year, m:+o.month, d:+o.day, min:(+o.hour)*60 + (+o.minute) };
+  }
+
+  /* ---- Reading the doctor's Google Sheet ---- */
+  function toHM(s){
+    var m = /^\s*(\d{1,2})(?:[:.](\d{2}))?(?::\d{2})?\s*(am|pm)?\s*$/i.exec(s);
+    if (!m) return null;
+    var h = +m[1], mi = m[2] ? +m[2] : 0, ap = m[3] && m[3].toLowerCase();
+    if (ap === 'pm' && h < 12) h += 12;
+    if (ap === 'am' && h === 12) h = 0;
+    if (h > 23 || mi > 59) return null;
+    return pad(h) + ':' + pad(mi);
+  }
+  function parseHours(text){
+    var out = [];
+    (text || '').split(/[,;]/).forEach(function(seg){
+      var p = seg.split(/\s*(?:-|–|—|to)\s*/i);
+      if (p.length === 2){
+        var a = toHM(p[0]), b = toHM(p[1]);
+        if (a && b && mins(a) < mins(b)) out.push([a,b]);
+      }
+    });
+    return out;
+  }
+  function parseDate(s){
+    var m = /^\s*(\d{1,4})[\/\-.](\d{1,2})[\/\-.](\d{1,4})\s*$/.exec(s || '');
+    if (!m) return null;
+    var a = +m[1], b = +m[2], c = +m[3], y, mo, d;
+    if (m[1].length === 4){ y = a; mo = b; d = c; }
+    else { d = a; mo = b; y = c < 100 ? 2000 + c : c; }
+    return y + '-' + pad(mo) + '-' + pad(d);
+  }
+  function parseCSV(text){
+    var rows = [], row = [], cell = '', q = false, i, ch;
+    for (i = 0; i < text.length; i++){
+      ch = text[i];
+      if (q){
+        if (ch === '"'){ if (text[i+1] === '"'){ cell += '"'; i++; } else q = false; }
+        else cell += ch;
+      }
+      else if (ch === '"') q = true;
+      else if (ch === ','){ row.push(cell); cell = ''; }
+      else if (ch === '\n'){ row.push(cell); rows.push(row); row = []; cell = ''; }
+      else if (ch !== '\r') cell += ch;
+    }
+    row.push(cell); rows.push(row);
+    return rows;
+  }
+  function loadOverrides(){
+    if (!SHEET_URL || !window.fetch) return;
+    var url = SHEET_URL + (SHEET_URL.indexOf('?') > -1 ? '&' : '?') + 't=' + Date.now();
+    fetch(url).then(function(r){ return r.text(); }).then(function(txt){
+      var rows = parseCSV(txt), o = {}, c = null;
+      rows.forEach(function(r){
+        var label = (r[0] || '').trim().toLowerCase(), v = (r[1] || '').trim();
+        if (label.indexOf('doctor status') === 0){ c = c || {}; c.status = v; return; }
+        if (label.indexOf('back') === 0){ c = c || {}; c.time = v; return; }
+        if (label.indexOf('note') === 0){ c = c || {}; c.note = v; return; }
+        if (label.indexOf('last updated') === 0){ c = c || {}; c.stamp = v; return; }
+        var key = parseDate(r[0]);
+        if (!key) return;
+        o[key] = {
+          status: (r[1] || '').trim().toLowerCase(),
+          raw: (r[2] || '').trim(),
+          hours: parseHours(r[2]),
+          note: (r[3] || '').trim()
+        };
+      });
+      OVERRIDES = o;
+      CONTROL = c;
+      update();
+    }).catch(function(){ /* if the sheet cannot load, regular timings are used */ });
+  }
+
+  /* The doctor's one-tap status, if it is still valid right now */
+  function controlInfo(n){
+    if (!CONTROL) return null;
+    var key = modeFromText(CONTROL.status);
+    if (!key) return null;
+    var back = toHM(CONTROL.time || '');
+    var sm = /(\d{4})-(\d{2})-(\d{2})/.exec(CONTROL.stamp || '');
+    if (sm && (+sm[1] !== n.y || +sm[2] !== n.m || +sm[3] !== n.d)) return null;   // set on an earlier day: ignore it
+    if ((key === 'late' || key === 'emergency' || key === 'lunch') && back && n.min > mins(back) + 90) return null;
+    if (key === 'available'){
+      var s = SCHEDULE[new Date(Date.UTC(n.y, n.m - 1, n.d)).getUTCDay()], from = 8*60, to = 20*60;
+      if (s.length){ from = mins(s[0][0]) - 120; to = mins(s[s.length-1][1]) + 60; }
+      if (n.min < from || n.min > to) return null;
+    }
+    return { key:key, back:back, note:(CONTROL.note || '').trim() };
+  }
+
+  /* ---- Work out a day's timings (regular + any override) ---- */
+  function dayInfo(offset, n){
+    var dt = new Date(Date.UTC(n.y, n.m - 1, n.d + offset));
+    var key = dt.getUTCFullYear() + '-' + pad(dt.getUTCMonth() + 1) + '-' + pad(dt.getUTCDate());
+    var day = dt.getUTCDay(), slots = SCHEDULE[day], note = '', custom = false, closedBy = false, live = '', back = null;
+    var c = offset === 0 ? controlInfo(n) : null;
+    if (c){
+      note = c.note;
+      if (c.key === 'closed'){ slots = []; closedBy = true; }
+      else { live = c.key; back = c.back; }
+    } else {
+      var o = OVERRIDES[key];
+      if (o){
+        note = o.note;
+        if (o.status === 'closed'){ slots = []; closedBy = true; }
+        else if (LIVE[o.status] && offset === 0){ live = o.status; back = toHM(o.raw); }
+        else if (o.hours.length){ slots = o.hours; custom = true; }
+      }
+    }
+    return { day:day, slots:slots, note:note, custom:custom, closedBy:closedBy, live:live, back:back };
+  }
+
+  function update(){
+    var n = clinicNow(), t = dayInfo(0, n), state = 'closed', msg = '', badge = '', notice = [], i;
+
+    if (t.live){
+      var L = LIVE[t.live];
+      state = L.state; msg = L.msg; badge = L.badge;
+      if (t.live !== 'available' && t.back){
+        if (n.min < mins(t.back)){
+          notice.push('Doctor will ' + (t.live === 'late' ? 'reach the clinic by ' : 'be back at ') + fmt(t.back) + '.');
+        } else {
+          notice.push('Doctor is taking a little longer than expected. Please call the clinic to confirm.');
+        }
+      }
+    } else {
+      for (i = 0; i < t.slots.length; i++){
+        if (n.min >= mins(t.slots[i][0]) && n.min < mins(t.slots[i][1])){
+          state = 'open'; msg = 'Open now · closes at ' + fmt(t.slots[i][1]); break;
+        }
+      }
+      if (state === 'closed'){
+        for (i = 0; i < t.slots.length; i++){
+          if (n.min < mins(t.slots[i][0])){ msg = 'Closed · opens at ' + fmt(t.slots[i][0]) + ' today'; break; }
+        }
+      }
+      if (state === 'closed' && !msg){
+        for (var d = 1; d <= 7; d++){
+          var x = dayInfo(d, n);
+          if (x.slots.length){
+            msg = 'Closed · opens ' + (d === 1 ? 'tomorrow' : DAYS[x.day]) + ' at ' + fmt(x.slots[0][0]);
+            break;
+          }
+        }
+        if (!msg) msg = 'Closed';
+      }
+      if (t.closedBy) msg = msg.replace(/^Closed/, 'Closed today');
+      badge = state === 'open' ? 'OPEN NOW' : 'CLOSED';
+    }
+    if (t.note) notice.push(t.note);
+
+    var hrs;
+    if (!t.slots.length) hrs = t.live ? 'Outside regular timings' : (t.closedBy ? 'Closed today' : 'Closed today (' + DAYS[t.day] + ')');
+    else hrs = (t.custom ? "Today's timing: " : (t.live ? 'Regular timings: ' : '')) + t.slots.map(function(s){ return fmt(s[0]) + ' – ' + fmt(s[1]); }).join(', ');
+
+    document.getElementById('live-bar').className = 'livebar ' + state;
+    document.getElementById('live-text').textContent = msg;
+    document.getElementById('status-pill').className = 'status ' + state;
+    document.getElementById('status-text').textContent = msg;
+    document.getElementById('today-bar').className = 'today ' + state;
+    document.getElementById('today-title').textContent = 'Today · ' + DAYS[t.day];
+    document.getElementById('today-hours').textContent = hrs;
+    document.getElementById('today-badge').textContent = badge;
+    document.getElementById('notice-bar').hidden = !notice.length;
+    document.getElementById('notice-text').textContent = notice.join(' ');
+  }
+
+  update();
+  loadOverrides();
+  setInterval(update, 60000);
+  setInterval(loadOverrides, 60000);
+})();
+</script>
+</body>
+</html>
